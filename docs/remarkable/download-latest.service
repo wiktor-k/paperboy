@@ -1,0 +1,11 @@
+[Unit]
+Description=Download latest
+After=network-online.target
+Wants=network-online.target systemd-networkd-wait-online.service
+
+[Service]
+ExecStart=/home/root/download-latest.sh
+Restart=on-failure
+RestartSec=600
+# Configure LATEST_URL pointing to the live installation
+Environment="LATEST_URL=..."

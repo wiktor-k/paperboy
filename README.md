@@ -8,6 +8,8 @@ newspaper every morning" experience:
 
 ![Newspaper PDF as shown on Remarkable 2 tablet](docs/newspaper.png)
 
+See `docs/remarkable` for the template.
+
 ## Building
 
 The application can be build for both AMD64 and AArch64/ARM64
