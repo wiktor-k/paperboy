@@ -1,5 +1,5 @@
 use clap::Parser;
-use newspaper_fetcher::Params;
+use paperboy::{start, Params};
 use service_binding::Binding;
 
 #[derive(Debug, Parser)]
@@ -21,7 +21,7 @@ struct Args {
     #[clap(long, env = "ADDITIONAL_TRUST_ROOT")]
     additional_trust_root: Option<std::path::PathBuf>,
 
-    #[clap(long, env = "SCOPE", default_value = "")]
+    #[clap(long, env = "SCOPE", default_value = "/")]
     scope: String,
 }
 
@@ -30,7 +30,7 @@ async fn main() -> std::io::Result<()> {
     env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
 
     let args = Args::parse();
-    newspaper_fetcher::start(
+    start(
         args.host.try_into()?,
         Params {
             issue_url: args.issue_url,
