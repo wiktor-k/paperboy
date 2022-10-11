@@ -1,4 +1,4 @@
-# Newspaper fetcher
+# Paperboy
 
 Implements a simple backend that retrieves newspaper PDFs from an
 online service.
@@ -17,5 +17,5 @@ architectures using [Docker
 BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/).
 
 ```sh
-docker buildx build --push --platform linux/amd64,linux/arm64 -t wiktork/newspaper-fetcher .
+docker buildx build --push --platform linux/amd64,linux/arm64 -t wiktork/paperboy .
 ```
