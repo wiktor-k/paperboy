@@ -10,7 +10,7 @@ publish = false
 actix-web = { version = "4", default-features = false, features = ["macros"] }
 service-binding = "0.3"
 clap = { version = "3.2", features = ["env", "derive" ] }
-serde-xml-rs = "0.5.1"
+serde-xml-rs = "0.6.0"
 serde = { version = "1", features = ["derive"] }
 url = "2.2.2"
 reqwest = { version = "0.11.11", default-features = false, features = ["rustls-tls"] }
