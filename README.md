@@ -1,4 +1,4 @@
-# Newspaper fetcher
+# Paperboy
 
 Implements a simple backend that retrieves newspaper PDFs from an
 online service.
