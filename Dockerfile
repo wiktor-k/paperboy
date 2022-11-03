@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM rust:1.59.0 AS rust
+FROM --platform=$BUILDPLATFORM rust:1.64 AS rust
 
 # cross-compile using clang/llvm: https://github.com/briansmith/ring/issues/1414#issuecomment-1055177218
 
