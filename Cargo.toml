@@ -9,7 +9,7 @@ publish = false
 [dependencies]
 actix-web = { version = "4", default-features = false, features = ["macros"] }
 service-binding = "1"
-clap = { version = "3", features = ["env", "derive" ] }
+clap = { version = "4", features = ["env", "derive" ] }
 serde-xml-rs = "0.5.1"
 serde = { version = "1", features = ["derive"] }
 url = "2"
