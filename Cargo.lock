@@ -1067,9 +1067,9 @@ dependencies = [
 
 [[package]]
 name = "service-binding"
-version = "1.0.1"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ca2c1fcb86a42b2282204392a9e440414e9480e4951d0a3659bedad45858ca0b"
+checksum = "9f8418a60a094aaaf2bd38ed3ee4fea0b188bf5903a9655c144085f1464c221b"
 
 [[package]]
 name = "sha1"
