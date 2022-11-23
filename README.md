@@ -12,7 +12,7 @@ See `docs/remarkable` for the template.
 
 ## Building
 
-The application can be build for both AMD64 and AArch64/ARM64
+The application can be built for both AMD64 and AArch64/ARM64
 architectures using [Docker
 BuildKit](https://docs.docker.com/develop/develop-images/build_enhancements/).
 
