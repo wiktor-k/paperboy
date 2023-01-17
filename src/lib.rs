@@ -79,7 +79,7 @@ async fn latest_issue(
     let resp = params.client.get(url).send().await?.text().await?;
 
     if let Some(id) = title::find_latest_issue(resp) {
-        let url = req.url_for("issue", &[format!("{}", id)])?;
+        let url = req.url_for("issue", [format!("{}", id)])?;
         Ok(HttpResponse::Found()
             .insert_header(("Location", url.as_str()))
             .body(""))
