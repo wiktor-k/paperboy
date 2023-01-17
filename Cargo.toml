@@ -18,7 +18,7 @@ mktemp = "0.4.1"
 regex = "1"
 lazy_static = "1"
 thiserror = "1"
-env_logger = "0.9"
+env_logger = "0.10"
 
 # This is required by cargo vendor during docker builds
 [[bin]]
