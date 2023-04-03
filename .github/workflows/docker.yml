@@ -14,4 +14,4 @@ jobs:
         uses: docker/setup-buildx-action@v1
       - name: Build image
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64 .
+          docker buildx build --build-arg SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct) --platform linux/amd64,linux/arm64 .
