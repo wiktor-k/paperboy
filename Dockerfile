@@ -39,7 +39,7 @@ RUN cp target/$(cat /target)/release/main .
 
 RUN sha256sum main
 
-FROM alpine:3.17
+FROM alpine:3.17 as alpine
 ARG SOURCE_DATE_EPOCH
 ENV \
     # Show full backtraces for crashes.
@@ -48,8 +48,18 @@ RUN apk add --no-cache \
       tini ghostscript \
     && rm -rf /var/cache/* \
     && mkdir /var/cache/apk
-WORKDIR /app
-COPY --from=rust /app/main ./
+
+COPY --from=rust /app/main ./app/
+
+# See: https://github.com/moby/buildkit/blob/master/docs/build-repro.md
+# Limit the timestamp upper bound to SOURCE_DATE_EPOCH.
+# Workaround for https://github.com/moby/buildkit/issues/3180
+RUN find /$( ls / | grep -E -v "^(dev|mnt|proc|sys)$" ) | xargs touch -d "@${SOURCE_DATE_EPOCH}" -h || true
+
+# Squash the entire stage for resetting the whiteout timestamps.
+# Workaround for https://github.com/moby/buildkit/issues/3168
+FROM scratch
+COPY --from=alpine / /
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["/app/main"]
