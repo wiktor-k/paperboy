@@ -20,15 +20,8 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and push Docker image
-        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ghcr.io/wiktor-k/paperboy:latest
-          labels: |
-            org.opencontainers.image.source=https://github.com/wiktor-k/paperboy
-            org.opencontainers.image.description=Simple backend that retrieves newspaper PDFs from an online service
-            org.opencontainers.image.licenses=Apache-2.0
+      - name: Build and push image
+        run: |
+          docker buildx build --push --build-arg SOURCE_DATE_EPOCH=$(git log -1 --pretty=%ct) --platform linux/amd64,linux/arm64 --iidfile /tmp/iid --tag ghcr.io/wiktor-k/paperboy --output "type=image,name=target,annotation-index.org.opencontainers.image.source=https://github.com/wiktor-k/paperboy,annotation-index.org.opencontainers.image.description=Simple backend that retrieves newspaper PDFs from an online service,annotation-index.org.opencontainers.image.licenses=Apache-2.0" .
+      - name: Print image ID
+        run: cat /tmp/iid
