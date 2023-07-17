@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM rust:1.68 AS rust
+FROM --platform=$BUILDPLATFORM rust:1.71 AS rust
 ARG SOURCE_DATE_EPOCH
 # cross-compile using clang/llvm: https://github.com/briansmith/ring/issues/1414#issuecomment-1055177218
 
@@ -39,7 +39,7 @@ RUN cp target/$(cat /target)/release/main .
 
 RUN sha256sum main
 
-FROM alpine:3.17 as alpine
+FROM alpine:3.18 as alpine
 ARG SOURCE_DATE_EPOCH
 ENV \
     # Show full backtraces for crashes.
