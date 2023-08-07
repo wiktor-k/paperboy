@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM rust:1.71@sha256:bef59af02f103760cd57e8d6ccadf364954b0ae5e74ea7c7203d26744aeec051 AS rust
+FROM --platform=$BUILDPLATFORM rust:1.71@sha256:c2eb45e99c89a67bcec8b30304afdb73405ea55b8a6cdafd8a1e2cfcf43a2ec2 AS rust
 ARG SOURCE_DATE_EPOCH
 # cross-compile using clang/llvm: https://github.com/briansmith/ring/issues/1414#issuecomment-1055177218
 
