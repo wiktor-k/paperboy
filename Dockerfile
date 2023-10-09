@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM rust:1.71@sha256:bef59af02f103760cd57e8d6ccadf364954b0ae5e74ea7c7203d26744aeec051 AS rust
+FROM --platform=$BUILDPLATFORM rust:1.73@sha256:5aa8cbdaae0fe0f90a811d565390f03f0f84f40feb6d53556b2f883f16ab55d5 AS rust
 ARG SOURCE_DATE_EPOCH
 # cross-compile using clang/llvm: https://github.com/briansmith/ring/issues/1414#issuecomment-1055177218
 
@@ -39,7 +39,7 @@ RUN cp target/$(cat /target)/release/main .
 
 RUN sha256sum main
 
-FROM alpine:3.18@sha256:82d1e9d7ed48a7523bdebc18cf6290bdb97b82302a8a9c27d4fe885949ea94d1 as alpine
+FROM alpine:3.18@sha256:eece025e432126ce23f223450a0326fbebde39cdf496a85d8c016293fc851978 as alpine
 
 ARG SOURCE_DATE_EPOCH
 ENV \
